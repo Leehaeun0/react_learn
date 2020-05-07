@@ -36,3 +36,50 @@
     transform: rotate(360deg);
   }
 }
+
+body * {
+  box-sizing: border-box;
+  font-size: 14px;
+  color: rgb(44, 44, 44);
+}
+
+form {
+  border: 3px solid rgb(108, 167, 206);
+  width: 250px;
+  margin: 50px auto;
+  padding: 35px 30px;
+}
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+legend {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+input {
+  display: block;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 2px solid #4f6da8;
+  font-size: 16px;
+}
+button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #4f6da8;
+  color: #fff;
+  border: none;
+}
