@@ -23,6 +23,7 @@ body * {
   background-color: rgb(163, 174, 235);
   width: 350px;
   margin: 50px auto 20px;
+  /* margin: 200px auto 20px; */
   padding: 35px 40px 21px;
   border-radius: 10px;
 }
@@ -31,7 +32,7 @@ body * {
   font-size: 20px;
   margin-bottom: 10px;
 }
-.logForm input {
+.logForm .inputStyle {
   width: 100%;
   border: none;
   padding: 8px;
@@ -47,12 +48,16 @@ body * {
   border: none;
   border-radius: 6px;
   color: rgb(31, 31, 31);
-  /* background-color: rgb(66, 87, 155); */
+  outline-style: none;
 }
 .logBtn.active {
-   background-color: rgb(66, 87, 155);
-   color: #fff;
+  background-color: rgb(66, 87, 155);
+  color: #fff;
 }
+.logBtn.active:focus {
+  outline-style: auto;
+}
+
 .warnLogin {
   font-size: 13px !important;
   font-weight: 600;

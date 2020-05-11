@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import style from './App.css';
 import Form01 from './atoms/Form01';
@@ -56,10 +56,11 @@ function App() {
   };
 
   const submitForm = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // e.target 없는 요소 떄문에 login 함수랑 분리함
     if (!userState.id.trim() || !userState.pw.trim()) return;
-    login();
     setTryLogin(true);
+    console.log('sub');
+    login();
   };
 
   const test = () => {
@@ -79,6 +80,7 @@ function App() {
         <Form01
           onSubmit={submitForm}
           getInputValue={getInputValue}
+          login={login}
           acitveWarn={tryLogin && !isLogin}
           btnActive={btnActive}
           // warnRef={warnRef}
