@@ -7,7 +7,7 @@ const st = classNames.bind(style);
 function App() {
   let users = [
     { $id: 1, id: 'haeun', pw: 'haeun123' },
-    { $id: 2, id: 'jhon', pw: 'jhon00' },
+    { $id: 2, id: 'jhon', pw: 'jhon00' }
   ];
 
   const generateId = () =>
@@ -16,14 +16,14 @@ function App() {
   const [userState, setUserState] = useState({
     $id: generateId(),
     id: '',
-    pw: '',
+    pw: ''
   });
   const btnRef = useRef();
 
   const changeBtnColor = () => {
     btnRef.current.classList.toggle(
       'active',
-      userState.id.trim() && userState.pw.trim(),
+      userState.id.trim() && userState.pw.trim()
     );
   };
   const getInputValue = (e) => {
@@ -40,6 +40,13 @@ function App() {
     console.log(users);
     setUserState({ $id: generateId(), id: '', pw: '' });
     console.log(userState);
+    // await setUserArrState([
+    //   ...userArrState,
+    //   { ...userState, $id: generateId() },
+    // ]);
+    // if (isUser()) setLoginState({ isLogin: true, loginId: "" });
+    // console.log(userArrState);
+    // console.log([...userArrState, { ...userState, $id: generateId() }]);
   };
 
   return (

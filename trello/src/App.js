@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import classNames from 'classnames/bind';
 import style from './App.css';
+import Form01 from './atoms/Form01';
 
 const st = classNames.bind(style);
 
@@ -14,6 +15,8 @@ function App() {
   const [userArrState, setUserArrState] = useState(users);
   const [loginState, setLoginState] = useState({ isLogin: false, loginId: '' });
   const { isLogin, loginId } = loginState;
+  const [tryLogin, setTryLogin] = useState(false);
+  const [btnActive, setBtnActive] = useState('');
 
   const generateId = () =>
     userArrState.length
@@ -21,18 +24,19 @@ function App() {
       : 1;
 
   const [userState, setUserState] = useState({
-    $id: generateId(),
+    $id: 0,
     id: '',
     pw: ''
   });
-  const warnRef = useRef();
-  const btnRef = useRef();
+  // const warnRef = useRef();
+  // const btnRef = useRef();
 
   const changeBtnColor = () => {
-    btnRef.current.classList.toggle(
-      'active',
-      userState.id.trim() && userState.pw.trim()
-    );
+    // btnRef.current.classList.toggle(
+    //   'active',
+    //   userState.id.trim() && userState.pw.trim()
+    // );
+    setBtnActive(userState.id.trim() && userState.pw.trim() ? 'active' : '');
   };
   const getInputValue = (e) => {
     const [value, name] = [e.target.value, e.target.name];
@@ -42,75 +46,46 @@ function App() {
   };
 
   const login = () => {
-    // users.forEach((user) => {
-    //   if (user.id !== userState.id || user.pw !== userState.pw) {
-    //     return;
-    //   }
-    //   setLoginState({ isLogin: true, loginId: user.id });
-    //   setUserState({ $id: 0, id: '', pw: '' });
-    // });
     const findUser = users.find(
       (user) => user.id === userState.id && user.pw === userState.pw
     );
-    warnRef.current.classList.toggle('a11yHidden', !!findUser);
+    // warnRef.current.classList.toggle('a11yHidden', !!findUser);
     if (!findUser) return;
     setLoginState({ isLogin: true, loginId: findUser.id });
     setUserState({ $id: 0, id: '', pw: '' });
   };
 
-  const logBtnClick = (e) => {
+  const submitForm = (e) => {
     e.preventDefault();
     if (!userState.id.trim() || !userState.pw.trim()) return;
     login();
-    // await setUserArrState([
-    //   ...userArrState,
-    //   { ...userState, $id: generateId() },
-    // ]);
-    // if (isUser()) setLoginState({ isLogin: true, loginId: "" });
-    // console.log(userArrState);
-    // console.log([...userArrState, { ...userState, $id: generateId() }]);
+    setTryLogin(true);
   };
 
   const test = () => {
     console.log(loginState);
+    console.log(tryLogin);
   };
 
   return (
-    <div>
+    <>
       <div className={st('head')} onClick={test}>
-        LOGIN PAGE
+        {isLogin ? `${loginState.loginId} 님` : 'LOGIN PAGE'}
       </div>
 
-      <form action="#" className={st('logForm')} onSubmit={logBtnClick}>
-        <h1 className={st('a11yHidden')}>로그인</h1>
-        <span>ID</span>
-        <input
-          type="text"
-          name="id"
-          onChange={getInputValue}
-          onBlur={getInputValue}
+      {isLogin ? (
+        <div>로그인 완료</div>
+      ) : (
+        <Form01
+          onSubmit={submitForm}
+          getInputValue={getInputValue}
+          acitveWarn={tryLogin && !isLogin}
+          btnActive={btnActive}
+          // warnRef={warnRef}
+          // btnRef={btnRef}
         />
-        <span>PASS</span>
-        <input
-          type="password"
-          name="pw"
-          onChange={getInputValue}
-          onBlur={getInputValue}
-        />
-        <span className={st('a11yHidden', 'warnLogin')} ref={warnRef}>
-          가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.
-        </span>
-        <button
-          type="submit"
-          className={st('logBtn')}
-          // onClick={logBtnClick}
-          ref={btnRef}
-        >
-          로그인
-        </button>
-      </form>
-      <div>{isLogin ? 'id ok' : 'no'}</div>
-    </div>
+      )}
+    </>
   );
 }
 
