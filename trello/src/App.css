@@ -1,0 +1,62 @@
+body * {
+  box-sizing: border-box;
+  font-size: 16px;
+  color: rgb(31, 31, 31);
+}
+.a11yHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0);
+  clip-path: polygon(0, 0);
+  overflow: hidden;
+  text-indent: -9999px;
+}
+.head {
+  background-color: rgb(66, 87, 155);
+  text-align: end;
+  padding: 20px;
+  color: #fff;
+  /* font-weight: 500; */
+}
+.logForm {
+  background-color: rgb(163, 174, 235);
+  width: 350px;
+  margin: 50px auto 20px;
+  padding: 35px 40px 21px;
+  border-radius: 10px;
+}
+.logForm span {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.logForm input {
+  width: 100%;
+  border: none;
+  padding: 8px;
+  margin-bottom: 20px;
+}
+.logForm input[type="text"]{
+  margin-bottom: 20px;
+}
+.logBtn {
+  display: block;
+  padding: 10px 60px;
+  margin: 14px auto;
+  border: none;
+  border-radius: 6px;
+  color: rgb(31, 31, 31);
+  /* background-color: rgb(66, 87, 155); */
+}
+.logBtn.active {
+   background-color: rgb(66, 87, 155);
+   color: #fff;
+}
+.warnLogin {
+  font-size: 13px !important;
+  font-weight: 600;
+  color: rgb(226, 58, 58);
+  margin-top: -1px;
+  /* text-align: center; */
+}
