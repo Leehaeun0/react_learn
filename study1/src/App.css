@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,14 +35,19 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 body * {
   box-sizing: border-box;
   font-size: 14px;
   color: rgb(44, 44, 44);
+  text-align: center;
 }
-
+.App {
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+}
 .a11yHidden {
   position: absolute;
   width: 1px;
@@ -77,16 +82,17 @@ legend {
   padding: 0;
 }
 input {
+  margin: 0 auto;
   display: block;
-  width: 100%;
-  margin: 0;
+  /* width: 100%; */
   margin-bottom: 20px;
-  border: none;
-  border-bottom: 2px solid #4f6da8;
+  /* border: none;
+  border-bottom: 2px solid #4f6da8; */
   font-size: 16px;
 }
 button {
-  width: 100%;
+  margin: 0 auto;
+  display: block;
   margin-top: 10px;
   padding: 10px;
   background-color: #4f6da8;
