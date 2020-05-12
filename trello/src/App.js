@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import style from './App.css';
 import Form01 from './atoms/Form01';
+import Todos01 from './atoms/Todos01';
 
 const st = classNames.bind(style);
 
@@ -12,50 +13,50 @@ function App() {
     { $id: 3, id: 'a', pw: 'aa' }
   ];
 
-  const [userArrState, setUserArrState] = useState(users);
+  const [usersDataState, setUsersDataState] = useState(users);
   const [loginState, setLoginState] = useState({ isLogin: false, loginId: '' });
   const { isLogin, loginId } = loginState;
 
-  const [tryLogin, setTryLogin] = useState(false);
-  const [btnActive, setBtnActive] = useState('');
+  // const [tryLogin, setTryLogin] = useState(false);
+  // const [btnActive, setBtnActive] = useState('');
 
   const generateId = () =>
-    userArrState.length
-      ? Math.max(...userArrState.map((user) => user.$id)) + 1
+    usersDataState.length
+      ? Math.max(...usersDataState.map((user) => user.$id)) + 1
       : 1;
 
-  const [userState, setUserState] = useState({
-    $id: 0,
-    id: '',
-    pw: ''
-  });
+  // const [userInputState, setUserInputState] = useState({
+  //   $id: 0,
+  //   id: '',
+  //   pw: ''
+  // });
 
-  const changeBtnColor = () => {
-    setBtnActive(userState.id.trim() && userState.pw.trim() ? 'active' : '');
-  };
-  const getInputValue = (e) => {
-    const [value, name] = [e.target.value, e.target.name];
-    setUserState({ ...userState, [name]: value });
-    changeBtnColor();
-    console.log(userState.id, userState.pw);
-  };
+  // const changeBtnColor = () => {
+  //   setBtnActive(userState.id.trim() && userState.pw.trim() ? 'active' : '');
+  // };
+  // const getInputValue = (e) => {
+  //   const [value, name] = [e.target.value, e.target.name];
+  //   setUserState({ ...userState, [name]: value });
+  //   changeBtnColor();
+  //   console.log(userState.id, userState.pw);
+  // };
 
-  const login = () => {
-    const findUser = users.find(
-      (user) => user.id === userState.id && user.pw === userState.pw
-    );
-    if (!findUser) return;
-    setLoginState({ isLogin: true, loginId: findUser.id });
-    setUserState({ $id: 0, id: '', pw: '' });
-  };
+  // const login = () => {
+  //   const findUser = users.find(
+  //     (user) => user.id === userState.id && user.pw === userState.pw
+  //   );
+  //   if (!findUser) return;
+  //   setLoginState({ isLogin: true, loginId: findUser.id });
+  //   setUserState({ $id: 0, id: '', pw: '' });
+  // };
 
-  const submitLogin = (e) => {
-    e.preventDefault(); // e.target 요소가 달라서 login 함수랑 분리함
-    if (!userState.id.trim() || !userState.pw.trim()) return;
-    setTryLogin(true);
-    login();
-    console.log('sub');
-  };
+  // const submitLogin = (e) => {
+  //   e.preventDefault(); // e.target 요소가 달라서 login 함수랑 분리함
+  //   if (!userState.id.trim() || !userState.pw.trim()) return;
+  //   setTryLogin(true);
+  //   login();
+  //   console.log('sub');
+  // };
 
   const test = () => {
     console.log(loginState);
@@ -65,22 +66,40 @@ function App() {
   return (
     <>
       <div className={st('head')} onClick={test}>
-        {isLogin ? `${loginState.loginId} 님` : 'LOGIN PAGE'}
+        {loginId} 이하은 님
+        <button type="button" className="logoutBtn">
+          LOG OUT
+        </button>
       </div>
+      {/* <div className={st('head')} onClick={test}>
+        {isLogin ? (
+          <>
+            {loginId} 님
+            <button type="button" className="logoutBtn">
+              LOG OUT
+            </button>
+          </>
+        ) : (
+          'LOGIN PAGE'
+        )}
+      </div> */}
 
-      {isLogin ? (
-        <div>로그인 완료</div>
+      <Todos01 />
+      {/* {isLogin ? (
+        <Todos01 />
       ) : (
         <Form01
-          onSubmit={submitLogin}
-          getInputValue={getInputValue}
-          login={login}
-          acitveWarn={tryLogin && !isLogin}
-          btnActive={btnActive}
+          usersDataState={usersDataState}
+          setLoginState={setLoginState}
+          // onSubmit={submitLogin}
+          // getInputValue={getInputValue}
+          // login={login}
+          // acitveWarn={tryLogin && !isLogin}
+          // btnActive={btnActive}
           // warnRef={warnRef}
           // btnRef={btnRef}
         />
-      )}
+      )} */}
     </>
   );
 }

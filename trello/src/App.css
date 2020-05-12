@@ -1,7 +1,7 @@
 body * {
   box-sizing: border-box;
   font-size: 16px;
-  color: rgb(31, 31, 31);
+  color: rgb(31, 31, 31) inherit;
 }
 .a11yHidden {
   position: absolute;
@@ -12,12 +12,35 @@ body * {
   overflow: hidden;
   text-indent: -9999px;
 }
+button {
+  border: none;
+}
+input {
+  border: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+button, input {
+  border: none;
+}
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+main.todoMain {
+  padding: 35px 32px;
+}
+h2 {
+  margin: 0;
+}
 .head {
   background-color: rgb(66, 87, 155);
-  text-align: end;
-  padding: 20px;
+  /* text-align: end; */
+  padding: 19px 30px;
   color: #fff;
-  /* font-weight: 500; */
+  font-size: 17px;
+  font-weight: 500;
 }
 .logForm {
   background-color: rgb(163, 174, 235);
@@ -45,7 +68,7 @@ body * {
   display: block;
   padding: 10px 60px;
   margin: 14px auto;
-  border: none;
+  /* border: none; */
   border-radius: 6px;
   color: rgb(31, 31, 31);
   outline-style: none;
@@ -64,4 +87,95 @@ body * {
   color: rgb(226, 58, 58);
   margin-top: -1px;
   /* text-align: center; */
+}
+
+.logoutBtn{
+  float: right;
+  margin-left: 10px;
+  background-color: rgba(255, 255, 255, 0);
+  margin-top: -5px;
+  padding: 4px 10px;
+  /* border-bottom: 1px solid #fff; */
+  /* border: 2px solid rgba(255, 255, 255, 0.5); */
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  color: #fff;
+}
+
+.newBoard {
+  display: inline-block;
+  /* background-color: rgba(66, 87, 155, 1); */
+  /* border: 2px solid rgba(66, 87, 155, 1); */
+  /* padding: 15px 20px; */
+  margin-bottom: 40px;
+  border-radius: 6px;
+}
+
+.newBoard h1 {
+  display: inline;
+  margin: 0 20px 0 0 !important;
+  padding: 0 0 0 0 !important;
+  font-weight: 400;
+  font-size: 38px;
+  /* line-height:30px; */
+  /* color: #fff; */
+  color: rgba(66, 87, 155, 1);
+}
+.newBoard input {
+  /* background-color: rgba(255, 255, 255, 0); */
+  /* border: 1px solid #fff; */
+  /* border-radius: 3px; */
+  /* box-sizing: initial; */
+  border-bottom: 2px solid rgba(66, 87, 155, 1);
+  /* margin-top: -2px; */
+  margin-right: 3px;
+  width: 170px;
+  font-size: 20px;
+
+  /* padding: 3px; */
+  outline: none;
+}
+.cardList {
+  /* display: flex; */
+  /* flex-direction: row;
+  flex-wrap: wrap; */
+  /* max-width: 1550px; */
+  margin: 0 auto;
+  /* justify-content: space-around; */
+}
+/* .card:last-child {
+  margin-right: auto;
+} */
+.card {
+  /* background-color: rgba(66, 87, 155, 1); */
+  /* background-color: rgb(138, 154, 207); */
+  /* float: left; */
+  vertical-align: top;
+  display: inline-block;
+  width: 280px;
+  border: 2px solid rgba(66, 87, 155, 1);
+  box-shadow: 3px 3px 0px rgba(66, 87, 155, 1);
+  border-radius: 15px;
+  padding: 23px 20px;
+  margin: 0 15px 30px;
+  color: rgb(66, 87, 155);
+}
+.card h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.todo {
+  font-size: 18px;
+  font-weight: 500;
+  /* padding-left: 8px; */
+  list-style: initial;
+  margin-left: 25px;
+}
+.todoInput {
+  border: 2px solid rgb(66, 87, 155);
+  /* background-color: rgb(66, 87, 155); */
+  margin: 18px 6px 0;
+  width: 94%;
+  height: 35px;
+  border-radius: 5px;
 }
