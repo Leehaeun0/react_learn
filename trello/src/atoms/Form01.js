@@ -32,7 +32,11 @@ const Form01 = ({ usersDataState, setLoginState }) => {
       (user) => user.id === userState.id && user.pw === userState.pw
     );
     if (!findUser) return;
-    setLoginState({ isLogin: true, loginId: findUser.id });
+    setLoginState({
+      isLogin: true,
+      loginId: findUser.id,
+      userId: findUser.$id
+    });
     setUserState({ $id: 0, id: '', pw: '' });
   };
 

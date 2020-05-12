@@ -14,16 +14,19 @@ function App() {
   ];
 
   const [usersDataState, setUsersDataState] = useState(users);
-  const [loginState, setLoginState] = useState({ isLogin: false, loginId: '' });
-  const { isLogin, loginId } = loginState;
+  const [loginState, setLoginState] = useState({
+    isLogin: false,
+    loginId: '',
+    userId: 0
+  });
+  const { isLogin, loginId, userId } = loginState;
 
   // const [tryLogin, setTryLogin] = useState(false);
   // const [btnActive, setBtnActive] = useState('');
 
-  const generateId = () =>
-    usersDataState.length
-      ? Math.max(...usersDataState.map((user) => user.$id)) + 1
-      : 1;
+  const generateId = (arr) => {
+    return arr.length ? Math.max(...arr.map((user) => user.$id)) + 1 : 1;
+  };
 
   // const [userInputState, setUserInputState] = useState({
   //   $id: 0,
@@ -58,6 +61,10 @@ function App() {
   //   console.log('sub');
   // };
 
+  const logOut = () => {
+    setLoginState({ isLogin: false, loginId: '', userId: 0 });
+  };
+
   const test = () => {
     console.log(loginState);
     // console.log(tryLogin);
@@ -65,28 +72,28 @@ function App() {
 
   return (
     <>
-      <div className={st('head')} onClick={test}>
+      {/* <div className={st('head')} onClick={test}>
         {loginId} 이하은 님
-        <button type="button" className="logoutBtn">
+        <button type="button" className="logoutBtn" onClick={logOut}>
           LOG OUT
         </button>
-      </div>
-      {/* <div className={st('head')} onClick={test}>
+      </div> */}
+      <div className={st('head')} onClick={test}>
         {isLogin ? (
           <>
             {loginId} 님
-            <button type="button" className="logoutBtn">
+            <button type="button" className="logoutBtn" onClick={logOut}>
               LOG OUT
             </button>
           </>
         ) : (
           'LOGIN PAGE'
         )}
-      </div> */}
+      </div>
 
-      <Todos01 />
-      {/* {isLogin ? (
-        <Todos01 />
+      {/* <Todos01 generateId={generateId} userId={userId} /> */}
+      {isLogin ? (
+        <Todos01 generateId={generateId} userId={userId} />
       ) : (
         <Form01
           usersDataState={usersDataState}
@@ -99,7 +106,7 @@ function App() {
           // warnRef={warnRef}
           // btnRef={btnRef}
         />
-      )} */}
+      )}
     </>
   );
 }

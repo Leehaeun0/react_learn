@@ -45,8 +45,8 @@ h2 {
 .logForm {
   background-color: rgb(163, 174, 235);
   width: 350px;
-  margin: 50px auto 20px;
-  /* margin: 200px auto 20px; */
+  /* margin: 50px auto 20px; */
+  margin: 200px auto 20px;
   padding: 35px 40px 21px;
   border-radius: 10px;
 }
@@ -68,7 +68,6 @@ h2 {
   display: block;
   padding: 10px 60px;
   margin: 14px auto;
-  /* border: none; */
   border-radius: 6px;
   color: rgb(31, 31, 31);
   outline-style: none;
@@ -95,8 +94,6 @@ h2 {
   background-color: rgba(255, 255, 255, 0);
   margin-top: -5px;
   padding: 4px 10px;
-  /* border-bottom: 1px solid #fff; */
-  /* border: 2px solid rgba(255, 255, 255, 0.5); */
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 5px;
   color: #fff;
@@ -104,11 +101,10 @@ h2 {
 
 .newBoard {
   display: inline-block;
-  /* background-color: rgba(66, 87, 155, 1); */
-  /* border: 2px solid rgba(66, 87, 155, 1); */
-  /* padding: 15px 20px; */
   margin-bottom: 40px;
   border-radius: 6px;
+  display: flex;
+  align-items: center;
 }
 
 .newBoard h1 {
@@ -117,39 +113,23 @@ h2 {
   padding: 0 0 0 0 !important;
   font-weight: 400;
   font-size: 38px;
-  /* line-height:30px; */
-  /* color: #fff; */
   color: rgba(66, 87, 155, 1);
 }
 .newBoard input {
-  /* background-color: rgba(255, 255, 255, 0); */
-  /* border: 1px solid #fff; */
-  /* border-radius: 3px; */
-  /* box-sizing: initial; */
   border-bottom: 2px solid rgba(66, 87, 155, 1);
-  /* margin-top: -2px; */
   margin-right: 3px;
-  width: 170px;
+  width: 175px;
+  height: 45px;
+  margin-top: -10px;
   font-size: 20px;
-
-  /* padding: 3px; */
   outline: none;
 }
 .cardList {
   /* display: flex; */
-  /* flex-direction: row;
-  flex-wrap: wrap; */
-  /* max-width: 1550px; */
   margin: 0 auto;
-  /* justify-content: space-around; */
 }
-/* .card:last-child {
-  margin-right: auto;
-} */
 .card {
-  /* background-color: rgba(66, 87, 155, 1); */
-  /* background-color: rgb(138, 154, 207); */
-  /* float: left; */
+  position: relative;
   vertical-align: top;
   display: inline-block;
   width: 280px;
@@ -167,15 +147,46 @@ h2 {
 .todo {
   font-size: 18px;
   font-weight: 500;
-  /* padding-left: 8px; */
   list-style: initial;
   margin-left: 25px;
 }
 .todoInput {
   border: 2px solid rgb(66, 87, 155);
-  /* background-color: rgb(66, 87, 155); */
   margin: 18px 6px 0;
   width: 94%;
   height: 35px;
   border-radius: 5px;
+}
+.deleteTodo {
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  top: 19px;
+  right: 20px;
+  font-size: 23px;
+  color: rgb(66, 87, 155);
+  padding: 0;
+  border-radius: 5px;
+}
+.deleteTodo:hover, .deleteTodo:focus {
+  background-color: rgb(66, 87, 155);
+  color: #fff;
+}
+.deleteTodo span {
+  background-color: rgb(66, 87, 155);
+  display: block;
+  height: 2px;
+  width: 100%;
+  /* transform: translateY(50%);; */
+}
+.deleteTodo span:first-child {
+  /* margin-top: 13px; */
+  margin-top: 50%;
+  /* margin-top: start; */
+  transform: rotate(45deg);
+}
+.deleteTodo span:last-child {
+  /* margin-top: -2px; */
+  margin-top: end;
+  transform: translateY(-50%) rotate(-45deg);
 }
