@@ -15,6 +15,7 @@ function App() {
   const [userArrState, setUserArrState] = useState(users);
   const [loginState, setLoginState] = useState({ isLogin: false, loginId: '' });
   const { isLogin, loginId } = loginState;
+
   const [tryLogin, setTryLogin] = useState(false);
   const [btnActive, setBtnActive] = useState('');
 
@@ -28,14 +29,8 @@ function App() {
     id: '',
     pw: ''
   });
-  // const warnRef = useRef();
-  // const btnRef = useRef();
 
   const changeBtnColor = () => {
-    // btnRef.current.classList.toggle(
-    //   'active',
-    //   userState.id.trim() && userState.pw.trim()
-    // );
     setBtnActive(userState.id.trim() && userState.pw.trim() ? 'active' : '');
   };
   const getInputValue = (e) => {
@@ -49,23 +44,22 @@ function App() {
     const findUser = users.find(
       (user) => user.id === userState.id && user.pw === userState.pw
     );
-    // warnRef.current.classList.toggle('a11yHidden', !!findUser);
     if (!findUser) return;
     setLoginState({ isLogin: true, loginId: findUser.id });
     setUserState({ $id: 0, id: '', pw: '' });
   };
 
-  const submitForm = (e) => {
-    e.preventDefault(); // e.target 없는 요소 떄문에 login 함수랑 분리함
+  const submitLogin = (e) => {
+    e.preventDefault(); // e.target 요소가 달라서 login 함수랑 분리함
     if (!userState.id.trim() || !userState.pw.trim()) return;
     setTryLogin(true);
-    console.log('sub');
     login();
+    console.log('sub');
   };
 
   const test = () => {
     console.log(loginState);
-    console.log(tryLogin);
+    // console.log(tryLogin);
   };
 
   return (
@@ -78,7 +72,7 @@ function App() {
         <div>로그인 완료</div>
       ) : (
         <Form01
-          onSubmit={submitForm}
+          onSubmit={submitLogin}
           getInputValue={getInputValue}
           login={login}
           acitveWarn={tryLogin && !isLogin}
