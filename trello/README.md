@@ -1,5 +1,5 @@
 리액트 공부 7일차 trello 만들어보기   
-결과물 영상 : https://www.youtube.com/watch?v=I6xQMUJFjkM
+결과물 영상 : https://www.youtube.com/watch?v=4XHEdoSAQ5E
 
 <br/>
 <br/>
