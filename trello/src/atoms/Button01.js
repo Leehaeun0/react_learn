@@ -5,11 +5,7 @@ import style from '../App.css';
 const st = classNames.bind(style);
 
 const Button01 = ({ btnActive }) => (
-  <button
-    type="submit"
-    className={st('logBtn', btnActive)}
-    // ref={btnRef}
-  >
+  <button type="submit" className={st('logBtn', btnActive)}>
     로그인
   </button>
 );

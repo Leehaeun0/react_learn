@@ -10,14 +10,5 @@ const Input01 = ({ getInputValue, login, type, name }) => (
     onKeyPress={login}
   />
 );
-// const Input02 = ({ getInputValue }) => (
-//   <input
-//     type="password"
-//     name="pw"
-//     className="inputStyle"
-//     onChange={getInputValue}
-//     onBlur={getInputValue}
-//   />
-// );
 
 export default Input01;

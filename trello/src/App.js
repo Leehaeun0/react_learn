@@ -50,12 +50,12 @@ function App() {
         )}
       </div>
 
-      <TodoPage generateId={generateId} userId={userId} />
-      {/* {isLogin ? (
-        <Todos01 generateId={generateId} userId={userId} />
+      {/* <TodoPage generateId={generateId} userId={userId} /> */}
+      {isLogin ? (
+        <TodoPage generateId={generateId} userId={userId} />
       ) : (
         <Form01 usersDataState={usersDataState} setLoginState={setLoginState} />
-      )} */}
+      )}
     </>
   );
 }

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import UlList from './UlList';
 import Todos from './Todos';
+import TodoInput from './TodoInput';
+import Button02 from './Button02';
 
 const Cards = ({
   userId,
@@ -41,21 +43,6 @@ const Cards = ({
     setinputTodos('');
   };
 
-  const deleteTodo = (cardId) => {
-    // console.log(cardId);
-    setCardsState(cardsState.filter((card) => card.$id !== cardId));
-    setTodosState(todosState.filter((todo) => todo.parentId !== cardId));
-  };
-
-  // const renderTodos = (cardId) => {
-  //   const filterTodo = todosState.filter((todo) => cardId === todo.parentId);
-  //   return filterTodo.map((todo) => (
-  //     <li key={todo.$id} className="todo">
-  //       {todo.content}
-  //     </li>
-  //   ));
-  // };
-
   return (
     <>
       {cardsState.map((card) => (
@@ -64,21 +51,18 @@ const Cards = ({
           <UlList>
             <Todos todosState={todosState} cardId={card.$id} />
           </UlList>
-
-          <input
+          <TodoInput
             name={card.$id}
             onChange={(e) => getInputValue(e, setinputTodos)}
-            onKeyPress={addTodo}
-            type="text"
-            className="todoInput"
+            addTodo={addTodo}
           />
-          <button
-            type="button"
-            className="deleteTodo"
-            onClick={() => deleteTodo(card.$id)}
-          >
-            X
-          </button>
+          <Button02
+            setCardsState={setCardsState}
+            cardsState={cardsState}
+            setTodosState={setTodosState}
+            todosState={todosState}
+            cardId={card.$id}
+          />
         </li>
       ))}
     </>

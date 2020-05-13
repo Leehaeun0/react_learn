@@ -2,16 +2,6 @@ import React from 'react';
 
 const Todos = ({ todosState, cardId }) => {
   const filterTodo = todosState.filter((todo) => cardId === todo.parentId);
-
-  // const renderTodos = (cardId) => {
-  //   const filterTodo = todosState.filter((todo) => cardId === todo.parentId);
-  //   return filterTodo.map((todo) => (
-  //     <li key={todo.$id} className="todo">
-  //       {todo.content}
-  //     </li>
-  //   ));
-  // };
-
   return (
     <>
       {filterTodo.map((todo) => (
