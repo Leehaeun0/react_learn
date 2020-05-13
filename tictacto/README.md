@@ -1,4 +1,4 @@
-리액트 공부 10일차 Tic-Tac-Toe 만들어보기
+리액트 공부 10일차 Tic-Tac-Toe 만들어보기   
 결과물 영상 : https://www.youtube.com/watch?v=EOXvCg-aRsk
 
 
