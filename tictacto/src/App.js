@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/no-array-index-key */
-/* eslint-disable react/self-closing-comp */
 import React, { useState } from 'react';
 import './App.css';
 
@@ -84,13 +83,36 @@ function App() {
       ))}
     </>
   );
+  const clickBackBtn = (_i) => {
+    let xArr = [];
+    let oArr = [];
+    for (let i = 0; i <= _i; i += 1) {
+      if (!(i % 2)) {
+        xArr = [...xArr, xState[Math.floor(i / 2)]];
+      }
+      if (i % 2) {
+        oArr = [...oArr, oState[Math.floor(i / 2)]];
+      }
+    }
+    setGameState(
+      gameState.map((v, i) => {
+        if (xArr.includes(i)) return 'X';
+        return oArr.includes(i) ? 'O' : null;
+      }),
+    );
+  };
 
   const renderBackBtn = () => {
     let buttons = [];
     for (let i = 0; i < turnState; i += 1) {
       buttons = [
         ...buttons,
-        <button key={i} type="button" className="stateBtn">
+        <button
+          key={i}
+          onClick={() => clickBackBtn(i)}
+          type="button"
+          className="stateBtn"
+        >
           back to {i + 1}st
         </button>,
       ];
@@ -107,7 +129,11 @@ function App() {
     <main>
       <div className="back">
         <h1 className="title">TIC TAC TOE</h1>
-        <em className="order">{orderMsg()}</em>
+        <em
+          className={`order ${checkWinner() || turnState === 9 ? 'color' : ''}`}
+        >
+          {orderMsg()}
+        </em>
         <div className="wrapBox">{renderBox()}</div>
         <div className="warpBtn">
           {renderBackBtn()}

@@ -34,10 +34,13 @@ main {
 }
 .order {
   font-style: normal;
-  padding-left: 18px;
-  font-size: 23px;
+  padding-left: 20px;
+  font-size: 25px;
   color: rgb(153, 153, 153);
   /* vertical-align: text-bottom; */
+}
+.color {
+  color: rgb(246, 65, 65);
 }
 .wrapBox {
   box-sizing: border-box;
