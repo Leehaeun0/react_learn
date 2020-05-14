@@ -47,6 +47,7 @@ function App() {
 
   const clickBox = (e, key) => {
     if (e.target.textContent) return;
+    if (turnState > 8) return;
     if (checkWinner()) return;
     setTurnState(turnState + 1);
     if (userState === 'X') {
