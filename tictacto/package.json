@@ -21,7 +21,8 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "airbnb"
+      "airbnb",
+      "prettier"
     ],
     "rules": {
       "react/jsx-filename-extension": 0,

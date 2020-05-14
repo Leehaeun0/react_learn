@@ -7,6 +7,7 @@ import './App.css';
 function App() {
   const [userState, setUserState] = useState('X');
   const [turnState, setTurnState] = useState(0);
+  // const [userDidState, setUserDidState] = useState([[], []]);
   const [xState, setxState] = useState([]);
   const [oState, setoState] = useState([]);
   const [gameState, setGameState] = useState([
@@ -33,27 +34,32 @@ function App() {
   ];
 
   const checkWinner = () => {
-    return winArr.some(
-      (win) =>
-        win.every((v) => gameState[v] === 'X') ||
-        win.every((v) => gameState[v] === 'O'),
+    const xWin = winArr.some(
+      (win) => xState.filter((x) => win.includes(x)).length === 3,
     );
-    // return winArr.some(
-    //   (win) =>
-    //     xState.filter((x) => win.includes(x)).length === 3 ||
-    //     oState.filter((x) => win.includes(x)).length === 3,
-    // );
+    const oWin = winArr.some(
+      (win) => oState.filter((x) => win.includes(x)).length === 3,
+    );
+    return xWin || oWin;
   };
 
+  // const test = () => {};
   const clickBox = (e, key) => {
+    // if (turnState === 9) return; // 비김 메세지
     if (e.target.textContent) return;
     if (checkWinner()) return;
     setTurnState(turnState + 1);
     if (userState === 'X') {
       setGameState(gameState.map((v, i) => (i === key ? 'X' : v)));
       setUserState('O');
+      // const statePromise = new Promise((resolve) => {
+      //   resolve(setxState([...xState, key]));
+      // });
+      // statePromise.then(checkWinner);
+
       setxState([...xState, key]);
-      checkWinner();
+      // checkWinner();
+      // test(setxState([...xState, key]), checkWinner());
       return;
     }
     setGameState(gameState.map((v, i) => (i === key ? 'O' : v)));
