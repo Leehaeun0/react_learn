@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+
+body * {
+  font-family: 'Noto Sans KR', sans-serif;
+  /* color: rgb(34, 34, 34); */
+  box-sizing: border-box;
+  height: 100%;
+}
+main {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 80px;
+  background-image: linear-gradient( 135deg, #6B73FF 10%, #000DFF 100%);
+  /* background: #DCE35B;
+  background: -webkit-linear-gradient(to right, #45B649, #DCE35B);
+  background: linear-gradient(to right, #45B649, #DCE35B);  */
+  /* height: 100vh; */
+  /* height: 1000px; */
+}
+h1, h2, ul, li {
+  margin: 0;
+  padding: 0;
+}
+input, button {
+  border: none;
+  background-color: #fff;
+}
+h1.title {
+  text-align: center;
+  font-size: 40px;
+  color: #fff;
+  padding: 80px 0 40px;
+  font-weight:600;
+  text-shadow: 1px 1px 10px rgba(0,0,0,.2);
+}
+.book_wrap {
+  background-color: rgba(255, 255, 255, 0.8);
+  /* width: 600px; */
+  width: 82%;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 40px 50px;
+  border-radius: 17px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, .2);
+}
+.inputs_wrap{
+  /* background-color: rgb(82, 91, 255); */
+  background-color: rgb(73, 82, 255);
+  background-image: linear-gradient( 135deg, rgb(95, 103, 255) 10%, rgb(57, 67, 255) 100%);
+  /* background-image: linear-gradient( 135deg, #636efe 10%, #475cff 100%); */
+  padding: 25px;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+div.div {
+  /* width: 100%; */
+  /* display: inline-block; */
+  /* background-color: red; */
+}
+.book_label {
+  color: rgb(0, 9, 170);
+  color: #fff;
+  font-size: 21px;
+  text-shadow: 1px 1px 5px rgba(0,0,0,.2);
+}
+.book_input {
+  /* margin-right: 20px; */
+  margin-left: 18px;
+  padding: 0 10px;
+  height: 30px;
+  max-width: 150px;
+  vertical-align: baseline;
+  font-size: 15px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 01);
+  /* margin-right: auto; */
+}
+/* @media screen and (max-width: 865px) { 
+  div.div {
+    width: 100%;
+  }
+  .book_input {
+    min-width: 40%;
+    width: 130px;
+  }
+} */
+@media screen and (max-width: 865px) { 
+  div.div:first-child {
+    margin-bottom: 15px;
+  }
+  div.div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: red; */
+  }
+  .book_input {
+    margin: 0;
+    max-width: 43%;
+  }
+}
+
+@media screen and (max-width: 540px) { 
+  div.div {
+    width: 100%;
+    display: block;
+  }
+  .book_input {
+    min-width: 100%;
+    margin: 8px 0 5px 0;
+  }
+} 
+/* .book_input:nth-child(2) {
+  margin-right: auto;
+}
+.book_label:nth-child(3) {
+  margin-left: 20px;
+} */
+/* @media screen and (max-width: 865px) { 
+  .book_input {
+    margin-left: 10px;
+    margin-right: auto;
+    padding: 0 10px;
+    width: 70%;
+    max-width: 140px;
+  }
+  .book_input:nth-child(2) {
+  }
+  .book_label:nth-child(3) {
+    margin-left: 0;
+  }
+} */
+ul.info_list {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* padding: 0 10px; */
+}
+@media screen and (max-width: 624px) { 
+  ul.info_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+li.info {
+  /* color: rgb(0, 9, 170);
+  color: rgb(35, 40, 143); */
+  color: rgb(46, 51, 141);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0 10px 5px;
+  font-weight: 500;
+  background-color: green;
+}
+li.info:last-child {
+  width: 61%;
+  background-color: red;
+  /* margin-right: auto; */
+  /* background-color: red;
+  flex-grow: 0.8; */
+}
+@media screen and (max-width: 1130px) { 
+  li.info:last-child {
+    margin-left: auto;
+    /* width: 61%; */
+    /* max-width: 451px; */
+    min-width: 395px;
+  }
+}
+@media screen and (max-width: 875px) { 
+  li.info:last-child {
+    /* max-width: 200px; */
+    max-width: auto;
+    min-width: auto;
+    width: auto;
+    margin-left: 10px;
+
+  }
+}
+.info_btn {
+  background-color: #fff;
+  color: rgb(46, 51, 141);
+  font-weight: 500;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+.info_btn:hover, .info_btn:focus {
+  background-color: rgb(59, 69, 255);
+  color: #fff;
+}
