@@ -5,7 +5,7 @@ body * {
   /* color: rgb(34, 34, 34); */
   /* color: rgb(90, 90, 90); */
   box-sizing: border-box;
-  /* height: 100%; */
+  height: 100%;
 }
 .page_bg {
   position: fixed;
@@ -40,7 +40,6 @@ h1.title {
   font-size: 40px;
   color: #fff;
   padding: 80px 0 40px;
-  /* padding: 30px 0 40px; */
   font-weight:600;
   text-shadow: 1px 1px 10px rgba(0,0,0,.28);
 }
@@ -49,11 +48,10 @@ h1.title {
   /* background-color: rgba(255, 255, 255, 0.9); */
   width: 82%;
   max-width: 850px;
-  max-width: 830px;
+  max-width: 750px;
   margin: 0 auto;
-  /* padding: 35px 50px 35px; */
-  padding: 40px 50px 45px;
-  border-radius: 19px;
+  padding: 25px 40px 30px;
+  border-radius: 21px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, .24);
 }
 .inputs_wrap{
@@ -62,7 +60,7 @@ h1.title {
   /* background-image: linear-gradient( 135deg, rgb(88, 96, 255) 10%, #223FFF 100%); */
   background-image: linear-gradient( 135deg, rgb(100, 107, 255) 10%, rgb(57, 67, 255) 100%);
   /* background-image: linear-gradient( 135deg, #636efe 10%, #475cff 100%); */
-  padding: 25px 25px;
+  padding: 20px 25px;
   border-radius: 11px;
   display: flex;
   flex-wrap: wrap;
@@ -70,10 +68,7 @@ h1.title {
 }
 div.div {
   display: flex;
-  position: relative;
   align-items: center;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
 }
 .book_label {
   color: rgb(0, 9, 170);
@@ -86,28 +81,19 @@ div.div {
   padding: 0 10px;
   height: 30px;
   max-width: 160px;
-  min-width: 100px;
   vertical-align: baseline;
   font-size: 15px;
-  border-radius: 4px;
+  border-radius: 5px;
   /* border-bottom: 1px solid #fff; */
-  /* background-color: rgba(255, 255, 255, 0.3); */
+  /* background-color: rgba(255, 255, 255, 0); */
   /* background-color: #fff; */
 }
-div.div:first-child {
-  width: 38%;
-}
-/* .warnMsg {
-  position: absolute;
-  right: 0;
-  bottom: -30px;
-} */
 @media screen and (max-width: 875px) { 
   div.div:first-child {
     margin-bottom: 15px;
   }
   div.div {
-    width: 100% !important;
+    width: 100%;
     display: flex;
     justify-content: space-between;
   }
@@ -123,13 +109,13 @@ div.div:first-child {
 }
 
 ul.info_list {
-  margin-top: 45px;
+  margin-top: 30px;
   padding: 0 5px;
   /* background-color: #fff;
   border-radius: 11px; */
 }
 
-@media screen and (max-width: 525px) { 
+@media screen and (max-width: 500px) { 
   main {
     padding-bottom: 70px;
   }
@@ -173,7 +159,7 @@ li.info {
   /* margin: 0 10px 5px; */
   width: 33.3%;
   text-align: center;
-  margin-bottom: 7px;
+  margin-bottom: 5px;
   font-weight: 500;
   letter-spacing: -0.5px;
 }
@@ -197,7 +183,6 @@ li.info:nth-child(3n) {
   li.info {
     width: 50%;
     justify-content: center !important;
-    align-items: center;
   }
   /* li.info:nth-child(2n -1) {
     padding-left: 10px;
@@ -213,12 +198,13 @@ li.info:nth-child(3n) {
 }
 
 .info_btn {
+  background-color: #fff;
   /* background-color: rgba(255, 255, 255, 0); */
   /* font-size: 14px; */
   box-sizing: border-box !important;
   color: rgb(46, 51, 141);
   font-weight: 500;
-  border-radius: 3.5px;
+  border-radius: 30px;
   margin-left: 10px;
   background-color: rgb(92, 100, 255);
   background-image: linear-gradient( 135deg, rgba(100, 107, 255, .9) 10%, rgba(57, 67, 255, .9) 100%);
@@ -256,73 +242,4 @@ li.info:nth-child(3n) {
 }
 .fa-phone-alt {
   text-shadow: 1px 1px 0;
-}
-
-.modal {
-  position: fixed;
-  width: 270px;
-  height: 68px;
-  top: 70px;
-  /* bottom: 0; */
-  left: 0;
-  right: 0;
-  margin: auto;
-  z-index: 100;
-  padding: 14px;
-  text-align: center;
-  color: rgb(46, 51, 141);
-  font-size: 14px;
-  font-weight: 500;
-  border-radius: 11px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0,0,0,.3);
-
-  animation-name: madalAppear;
-  animation-duration: .3s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
-}
-@keyframes madalAppear {
-  0% {
-      opacity: 0;
-      transform: translateY(-100px);
-  }
-  100% {
-      opacity: 1;
-      transform: translateX(0);
-  }
-}
-.modal .fadeout {
-  animation-name: madalFadeout;
-  animation-duration: .4s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
-}
-@keyframes madalFadeout {
-  0% {
-      opacity: 1;
-  }
-  100% {
-      opacity: 0;
-  }
-}
-.modal + .dim {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  z-index: 90;
-  background-color: rgba(0,0,0,.3);
-}
-.modal span {
-  display: inline-block;
-}
-.fa-exclamation-circle {
-  vertical-align: text-bottom;
-  padding-right: 6px;
-  font-size: 14px;
 }
