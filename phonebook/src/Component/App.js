@@ -1,8 +1,11 @@
 import React, { useReducer, useRef } from 'react';
 import { reducer, initialState } from '../Reducer/Reducer';
+import UserDispatch from '../Context/Context';
 import PhoneList from './PhoneList';
 import Modal from './Modal';
 import '../App.css';
+
+// export const UserDispatch = createContext(null);
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -67,7 +70,9 @@ function App() {
               />
             </div>
           </div>
-          <PhoneList bookState={bookState} dispatch={dispatch} />
+          <UserDispatch.Provider value={dispatch}>
+            <PhoneList bookState={bookState} />
+          </UserDispatch.Provider>
         </div>
         {state.regExpState ? '' : <Modal modalRef={modalRef} />}
       </main>

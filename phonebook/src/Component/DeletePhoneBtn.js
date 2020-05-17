@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import UserDispatch from '../Context/Context';
 
-const DeletePhoneBtn = ({ id, dispatch }) => {
+const DeletePhoneBtn = ({ id }) => {
+  const dispatch = useContext(UserDispatch);
   const deletePhone = () => {
     dispatch({ type: 'DELETE_PHONE', id });
   };
