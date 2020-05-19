@@ -1,7 +1,7 @@
 import React from "react";
-import { initailState, reducer } from "../Reducer/Reducer";
+import { initailState } from "../Reducer/Reducer";
 
-export const MyContext = React.createContext();
+export const SkillContext = React.createContext();
 
 export function ContextProvider({ children }) {
   // const initailState = [
@@ -11,6 +11,8 @@ export function ContextProvider({ children }) {
   // ];
 
   return (
-    <MyContext.Provider value={initailState}>{children}</MyContext.Provider>
+    <SkillContext.Provider value={initailState}>
+      {children}
+    </SkillContext.Provider>
   );
 }

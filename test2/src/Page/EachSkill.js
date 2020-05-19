@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { MyContext } from "../Context/Context";
+import { SkillContext } from "../Context/Context";
 // const contents = [
 //   { id: 1, title: "HTML", description: "HTML is ..." },
 //   { id: 2, title: "JS", description: "JS is ..." },
 //   { id: 3, title: "React", description: "React is ..." },
 // ];
 const EachSkill = () => {
-  const contents = useContext(MyContext);
+  const contents = useContext(SkillContext);
   var params = useParams();
   var content_id = params.content_id;
   var selected_topic = {

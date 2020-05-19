@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import { NavLink } from "react-router-dom";
 import SubRouter from "../Router/SubRouter";
-import { initailState, reducer } from "../Reducer/Reducer";
+import { initailState } from "../Reducer/Reducer";
 
 // const contents = [
 //   { id: 1, title: "HTML", description: "HTML is ..." },
@@ -15,7 +15,8 @@ import { initailState, reducer } from "../Reducer/Reducer";
 // };
 
 const Skill = () => {
-  const [contents, dispatch] = useReducer(reducer, initailState);
+  // const [contents, dispatch] = useReducer(reducer, initailState);
+  const contents = initailState;
   // const contents = [
   //   { id: 1, title: "HTML", description: "HTML is ..." },
   //   { id: 2, title: "JS", description: "JS is ..." },
