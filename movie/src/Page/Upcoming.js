@@ -1,6 +1,8 @@
 import React, { useReducer, useEffect } from "react";
 import { movies } from "../Api/Api";
 import { reducer, initialState } from "../Reducer/Reducer";
+import { Link } from "react-router-dom";
+import SubRouter from "../Router/SubRouter";
 
 const Upcoming = ({ history }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -34,12 +36,14 @@ const Upcoming = ({ history }) => {
           }
           return (
             <li key={v.id} className="upcomings">
-              <img
-                src={`https://image.tmdb.org/t/p/w500${v.poster_path}`}
-                alt={v.title}
-              />
-              <strong>{v.title}</strong>
-              <span>{v.vote_count}</span>
+              <Link to={"/Details/" + v.id}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${v.poster_path}`}
+                  alt={v.title}
+                />
+                <strong>{v.title}</strong>
+                <span>{v.vote_count}</span>
+              </Link>
             </li>
           );
         })}
@@ -47,6 +51,7 @@ const Upcoming = ({ history }) => {
       <button className="gohome_btn" onClick={() => history.push("/")}>
         HOME
       </button>
+      <SubRouter />
     </>
   );
 };

@@ -1,6 +1,8 @@
 import React, { useEffect, useContext, useReducer } from "react";
+import { Link } from "react-router-dom";
 import { movies } from "../Api/Api";
 import { reducer, initialState } from "../Reducer/Reducer";
+import SubRouter from "../Router/SubRouter";
 
 const Popular = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -9,15 +11,6 @@ const Popular = () => {
     const { results: popularData } = await movies.getPopular();
     // const { page } = await movies.getPopular();
     console.log(popularData);
-
-    // const test = await movies.getMovie(385103);
-    // console.log(
-    //   test,
-    //   test.data.overview,
-    //   test.data.original_title,
-    //   test.data.release_date
-    // );
-
     dispatch({ type: "GET_POPULAR", getPopular: popularData });
   };
 
@@ -26,20 +19,25 @@ const Popular = () => {
     return () => {};
   }, []);
 
+  // if () getPopular(n);
+
   return (
     <>
       <ul className="popular_list">
-        {state.getPopular.map((v, i) => (
+        {state.getPopular.map((v) => (
           <li key={v.id} className="populars">
-            <img
-              src={`https://image.tmdb.org/t/p/w500${v.poster_path}`}
-              alt={v.title}
-            />
-            <strong>{v.title}</strong>
-            <span>{v.vote_count}</span>
+            <Link to={"/Details/" + v.id}>
+              <img
+                src={`https://image.tmdb.org/t/p/w500${v.poster_path}`}
+                alt={v.title}
+              />
+              <strong>{v.title}</strong>
+              <span>{v.vote_count}</span>
+            </Link>
           </li>
         ))}
       </ul>
+      <SubRouter />
     </>
   );
 };

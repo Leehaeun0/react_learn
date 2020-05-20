@@ -3,6 +3,8 @@
 export const initialState = {
   getPopular: [],
   getUpcoming: [],
+  getDetails: [],
+  getSearch: [],
   loading: false,
 };
 
@@ -12,6 +14,10 @@ export const reducer = (state, action) => {
       return { ...state, getPopular: action.getPopular };
     case "GET_UPCOMMIMG":
       return { ...state, getUpcoming: action.getUpcoming };
+    case "GET_DETAILS":
+      return { ...state, getDetails: action.getDetails };
+    case "SEARCH_MOVIES":
+      return { ...state, getSearch: action.getSearch };
     default:
       throw new Error();
   }
