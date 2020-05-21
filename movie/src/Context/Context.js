@@ -1,10 +1,28 @@
 import React from "react";
-import { initialState } from "../Reducer/Reducer";
+import UseFetch from "../Hook/UseFetch";
 
 export const MovieContext = React.createContext();
 
 export function ContextProvider({ children }) {
-  const MovieValue = { getPopular: initialState.getPopular };
+  const [
+    state,
+    getPopular,
+    getUpcoming,
+    getSearch,
+    getDetails,
+    cleanDetails,
+    giveLoding,
+  ] = UseFetch();
+
+  const MovieValue = {
+    state,
+    getPopular,
+    getUpcoming,
+    getSearch,
+    getDetails,
+    cleanDetails,
+    giveLoding,
+  };
 
   return (
     <MovieContext.Provider value={MovieValue}>{children}</MovieContext.Provider>

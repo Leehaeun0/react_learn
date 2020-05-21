@@ -1,32 +1,28 @@
-import React, { useEffect, useContext, useReducer } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { movies } from "../Api/Api";
-import { reducer, initialState } from "../Reducer/Reducer";
-import SubRouter from "../Router/SubRouter";
+import { MovieContext } from "../Context/Context";
 
 const Popular = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const MovieContextValue = useContext(MovieContext);
+  const { state, getPopular, giveLoding } = MovieContextValue;
+  const isRender = useRef();
 
-  const getPopular = async () => {
-    const { results: popularData } = await movies.getPopular();
-    // const { page } = await movies.getPopular();
-    console.log(popularData);
-    dispatch({ type: "GET_POPULAR", getPopular: popularData });
-  };
+  console.log("@@Render Popular page");
 
   useEffect(() => {
-    getPopular();
-    return () => {};
-  }, []);
+    if ([...isRender.current.children].length) return;
+    console.log("useEffect popular");
 
-  // if () getPopular(n);
+    giveLoding();
+    getPopular();
+  }, []);
 
   return (
     <>
-      <ul className="popular_list">
+      <ul className="popular_list" ref={isRender}>
         {state.getPopular.map((v) => (
           <li key={v.id} className="populars">
-            <Link to={"/Details/" + v.id}>
+            <Link to={"/" + v.id}>
               <img
                 src={`https://image.tmdb.org/t/p/w500${v.poster_path}`}
                 alt={v.title}
@@ -37,7 +33,6 @@ const Popular = () => {
           </li>
         ))}
       </ul>
-      <SubRouter />
     </>
   );
 };

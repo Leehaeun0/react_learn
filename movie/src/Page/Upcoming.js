@@ -1,57 +1,62 @@
-import React, { useReducer, useEffect } from "react";
-import { movies } from "../Api/Api";
-import { reducer, initialState } from "../Reducer/Reducer";
+import React, { useEffect, useContext, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import SubRouter from "../Router/SubRouter";
+import { MovieContext } from "../Context/Context";
 
 const Upcoming = ({ history }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  console.log("@@Render Upcoming page");
 
-  const getUpcoming = async () => {
-    const { results: getUpcoming } = await movies.getUpcoming();
-    console.log(getUpcoming);
-    dispatch({ type: "GET_UPCOMMIMG", getUpcoming });
-  };
+  // const [isGet, setIsGet] = useState(false);
+  const MovieContextValue = useContext(MovieContext);
+  const { state, getUpcoming, giveLoding } = MovieContextValue;
+
+  const isRender = useRef();
 
   useEffect(() => {
-    getUpcoming();
-    return () => {};
+    if ([...isRender.current.children].length) return;
+    console.log("useEffect upcoming");
+    // console.log("length", state.getUpcoming);
+    // if (state.getUpcoming.lenght) return;
+    // if (setIsGet) return;
+    giveLoding();
+    setTimeout(() => getUpcoming(), 500);
+    // setIsGet(true);
+    // return () => {};
   }, []);
+
   return (
     <>
-      <ul className="upcoming_list">
-        {console.log(state)}
-        {state.getUpcoming.map((v) => {
-          if (v.id === 682134) {
+      <ul className="upcoming_list" ref={isRender}>
+        {/* {console.log("state", state, state.loading)} */}
+        {state.loading ? (
+          <>
+            <img
+              className="loding_img"
+              src="https://media.giphy.com/media/3ofT5SYZUlquxDH6Pm/giphy.gif"
+              alt="upcoming_loding"
+            />
+            <h3 className="loding_msg">LODING...</h3>
+          </>
+        ) : (
+          state.getUpcoming.map((v) => {
             return (
               <li key={v.id} className="upcomings">
-                <img
-                  src="https://img.reelgood.com/content/movie/31d7f0fa-038a-4f12-afd4-42eb8bbb446d/poster-780.jpg"
-                  alt={v.title}
-                />
-                <strong>{v.title}</strong>
-                <span>{v.vote_count}</span>
+                <Link to={"/" + v.id}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${v.poster_path}`}
+                    alt={v.title}
+                  />
+                  <strong>{v.title}</strong>
+                  <span>{v.vote_count}</span>
+                </Link>
               </li>
             );
-          }
-          return (
-            <li key={v.id} className="upcomings">
-              <Link to={"/Details/" + v.id}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${v.poster_path}`}
-                  alt={v.title}
-                />
-                <strong>{v.title}</strong>
-                <span>{v.vote_count}</span>
-              </Link>
-            </li>
-          );
-        })}
+          })
+        )}
       </ul>
       <button className="gohome_btn" onClick={() => history.push("/")}>
         HOME
       </button>
-      <SubRouter />
+      {/* <SubRouter /> */}
     </>
   );
 };

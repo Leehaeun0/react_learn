@@ -2,10 +2,12 @@ import React from "react";
 import { useLocation, useRouteMatch } from "react-router-dom";
 
 const About = ({ history }) => {
-  const location = useLocation();
-  const match = useRouteMatch();
-  console.log("location:", location);
-  console.log("match:", match);
+  console.log("@@Render About page");
+
+  // const location = useLocation();
+  // const match = useRouteMatch();
+  // console.log("location:", location);
+  // console.log("match:", match);
   return (
     <>
       <div className="about_wrap">
@@ -16,7 +18,6 @@ const About = ({ history }) => {
       <button className="gohome_btn" onClick={() => history.push("/")}>
         HOME
       </button>
-      {/* <button onClick={() => history.goBack()}>뒤로가기</button> */}
     </>
   );
 };

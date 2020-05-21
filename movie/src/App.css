@@ -143,7 +143,7 @@ textarea {
 }
 
 .search_input {
-  margin: 20px 0;
+  margin: 10px 0 40px;
   border: 3px solid #E50914;
   /* border: 3px solid #fff; */
   /* background-color: #E50914; */
@@ -151,5 +151,13 @@ textarea {
   width: 470px;
   height: 50px;
   padding: 0 17px;
-  font-size: 16px;
+  font-size: 18px;
+}
+
+.loding_img {
+  margin: 100px 0 40px;
+}
+.loding_msg {
+  font-size: 25px;
+  font-weight: 500;
 }

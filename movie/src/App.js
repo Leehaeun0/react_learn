@@ -1,16 +1,15 @@
 import "./App.css";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import MainRouter from "./Router/MainRouter";
 
-const App = ({ history }) => {
-  console.log(history);
-
+const App = () => {
   return (
     <div className="container">
-      <h1 className="header" onClick={() => history.push("/")}>
-        MOVIE THEATER
-      </h1>
+      <Link to="/">
+        <h1 className="header">MOVIE THEATER</h1>
+      </Link>
+
       <ul className="nav_list">
         <li>
           <h2>
