@@ -11,7 +11,8 @@ export function ContextProvider({ children }) {
     getSearch,
     getDetails,
     cleanDetails,
-    giveLoding,
+    giveLoading,
+    deleteLoading,
     pushHistory,
   ] = UseFetch();
 
@@ -22,7 +23,8 @@ export function ContextProvider({ children }) {
     getSearch,
     getDetails,
     cleanDetails,
-    giveLoding,
+    giveLoading,
+    deleteLoading,
     pushHistory,
   };
 

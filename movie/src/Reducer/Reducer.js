@@ -19,8 +19,10 @@ export const reducer = (state, action) => {
       return { ...state, getDetails: initialState.getDetails };
     case "SEARCH_MOVIES":
       return { ...state, getSearch: action.getSearch, loading: false };
-    case "LODING":
+    case "LOADING_TRUE":
       return { ...state, loading: true };
+    case "LOADING_FALSE":
+      return { ...state, loading: false };
     case "PUSH_HISTORY":
       return {
         ...state,

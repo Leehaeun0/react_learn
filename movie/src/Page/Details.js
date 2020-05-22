@@ -4,7 +4,7 @@ import { MovieContext } from "../Context/Context";
 
 const Details = ({ history }) => {
   const MovieContextValue = useContext(MovieContext);
-  const { state, getDetails, cleanDetails, giveLoding } = MovieContextValue;
+  const { state, getDetails, cleanDetails, giveLoading } = MovieContextValue;
 
   const params = useParams();
   const id = params.content_id;
@@ -12,19 +12,19 @@ const Details = ({ history }) => {
   console.log("@@Render Details page");
 
   useEffect(() => {
-    giveLoding();
+    giveLoading();
     getDetails(id);
     return () => {
       cleanDetails();
     };
   }, []);
-  console.log(state.loding);
-  if (state.loding) return "로딩중...";
+
+  console.log("loading!!", state.loading);
+  if (state.loading) return "";
 
   const info = state.getDetails;
   return (
     <>
-      {state.loding}
       <div className="details_wrap">
         <img
           src={`https://image.tmdb.org/t/p/w500${info.poster_path}`}
@@ -51,4 +51,5 @@ const Details = ({ history }) => {
   );
 };
 
-export default Details;
+// export default Details;
+export default React.memo(Details);

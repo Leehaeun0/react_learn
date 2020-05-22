@@ -6,14 +6,14 @@ const UseFetch = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const getPopular = async () => {
-    if (state.getPopular.length) return;
+    // if (state.getPopular.length) return;
     const { results: popularData } = await movies.getPopular();
     console.log("-- get popular doing");
     dispatch({ type: "GET_POPULAR", getPopular: popularData });
   };
 
   const getUpcoming = async () => {
-    if (state.getUpcoming.length) return;
+    // if (state.getUpcoming.length) return;
     // if ([...isRender.current.children].length) return;
     const { results: getUpcoming } = await movies.getUpcoming();
     console.log("-- get Upcoming doing");
@@ -30,7 +30,7 @@ const UseFetch = () => {
     const { data } = await movies.getMovie(id);
     console.log("-- get details doing");
     // try{
-    //   dispatch({type:"LODING"})
+    //   dispatch({type:"LOADING"})
     // }catch(e){
 
     // }
@@ -41,9 +41,14 @@ const UseFetch = () => {
     dispatch({ type: "CLEAN_DETAILS" });
   };
 
-  const giveLoding = () => {
-    console.log("give loding true");
-    dispatch({ type: "LODING" });
+  const giveLoading = () => {
+    console.log("give loading true");
+    dispatch({ type: "LOADING_TRUE" });
+  };
+
+  const deleteLoading = () => {
+    console.log("give loading false");
+    dispatch({ type: "LOADING_FALSE" });
   };
 
   const pushHistory = (e) => {
@@ -63,7 +68,8 @@ const UseFetch = () => {
     getSearch,
     getDetails,
     cleanDetails,
-    giveLoding,
+    giveLoading,
+    deleteLoading,
     pushHistory,
   ];
 };

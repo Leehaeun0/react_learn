@@ -4,15 +4,30 @@ import { MovieContext } from "../Context/Context";
 
 const Popular = () => {
   const MovieContextValue = useContext(MovieContext);
-  const { state, getPopular, giveLoding } = MovieContextValue;
+  const { state, getPopular, giveLoading, deleteLoading } = MovieContextValue;
 
   console.log("@@Render Popular page");
 
   useEffect(() => {
+    if (state.getPopular.length) return;
     console.log("useEffect popular");
-    giveLoding();
-    getPopular();
+    giveLoading();
+    // getPopular();
+    setTimeout(() => getPopular(), 500);
+    return () => deleteLoading();
   }, []);
+
+  if (state.loading)
+    return (
+      <>
+        <img
+          className="loding_img"
+          src="https://media.giphy.com/media/3ofT5SYZUlquxDH6Pm/giphy.gif"
+          alt="upcoming_loding"
+        />
+        <h3 className="loding_msg">LOADING...</h3>
+      </>
+    );
 
   return (
     <>
@@ -37,4 +52,5 @@ const Popular = () => {
   );
 };
 
-export default Popular;
+// export default Popular;
+export default React.memo(Popular);

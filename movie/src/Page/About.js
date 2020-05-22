@@ -11,8 +11,8 @@ const About = ({ history }) => {
   return (
     <>
       <div className="about_wrap">
-        <span>Developer - Haeun</span>
         <span>Made By React</span>
+        <span>Developer - Haeun</span>
         <span>THANK YOU!</span>
       </div>
       <button className="gohome_btn" onClick={() => history.push("/")}>
@@ -23,3 +23,4 @@ const About = ({ history }) => {
 };
 
 export default React.memo(About);
+// export default About;
