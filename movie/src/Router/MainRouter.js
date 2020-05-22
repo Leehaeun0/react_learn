@@ -14,11 +14,11 @@ const MainRouter = () => {
       <Route path="/Search" component={Search} />
       <Route path="/About" component={About} />
       <Route path="/Upcoming" component={Upcoming} />
+      <Route path="/HistoryTab" component={HistoryTab} />
       <Route path="/:content_id" component={Details} />
       {/* <Route path="/Details" component={Details} /> */}
       {/* <Route path="/Upcoming/:content_id" component={Details} /> */}
       {/* <Route path="/About/:content_id" component={Details} /> */}
-      <Route path="/HistoryTab" component={HistoryTab} />
       <Route
         render={({ location }) => (
           <div>

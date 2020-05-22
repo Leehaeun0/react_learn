@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useRouteMatch } from "react-router-dom";
+// import { useLocation, useRouteMatch } from "react-router-dom";
 
 const About = ({ history }) => {
   console.log("@@Render About page");
@@ -22,4 +22,4 @@ const About = ({ history }) => {
   );
 };
 
-export default About;
+export default React.memo(About);

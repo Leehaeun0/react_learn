@@ -82,12 +82,22 @@ textarea {
 .populars img, .upcomings img {
   width: 100%;
   height: 435px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .populars *, .upcomings * {
   display: block;
   font-weight: 500;
-  color: rgb(204, 204, 204);
+  /* color: rgb(204, 204, 204); */
+  /* color: rgb(117, 117, 117); */
+  /* color: #E50914; */
+  font-size: 15px;
+}
+.populars strong, .upcomings strong {
+  font-size: 17px;
+  color: #fff;
+  padding-bottom: 3px;
+  /* color: #E50914; */
+  /* color: rgb(204, 204, 204); */
 }
 @media screen and (max-width: 607px) { 
   .populars, .upcomings  {
@@ -99,7 +109,7 @@ textarea {
   }
 }
 .about_wrap {
-  margin-top: 260px;
+  margin: 260px 0 100px;
 }
 .about_wrap * {
   display: block;
@@ -143,7 +153,7 @@ textarea {
 }
 
 .search_input {
-  margin: 10px 0 40px;
+  margin: 0;
   border: 3px solid #E50914;
   /* border: 3px solid #fff; */
   /* background-color: #E50914; */
@@ -160,4 +170,19 @@ textarea {
 .loding_msg {
   font-size: 25px;
   font-weight: 500;
+}
+
+.history_list {
+  margin: 30px;
+}
+.history_list li {
+  background-color: #E50914;
+  display: inline-block;
+  padding: 2px 20px 4px;
+  margin: 0 11px;
+  font-weight: 500;
+}
+
+.fa-thumbs-up {
+  display: inline-block;
 }

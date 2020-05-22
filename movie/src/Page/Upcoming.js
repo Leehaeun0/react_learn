@@ -1,32 +1,24 @@
-import React, { useEffect, useContext, useState, useRef } from "react";
+import React, { useEffect, useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { MovieContext } from "../Context/Context";
 
 const Upcoming = ({ history }) => {
   console.log("@@Render Upcoming page");
 
-  // const [isGet, setIsGet] = useState(false);
   const MovieContextValue = useContext(MovieContext);
   const { state, getUpcoming, giveLoding } = MovieContextValue;
 
   const isRender = useRef();
 
   useEffect(() => {
-    if ([...isRender.current.children].length) return;
     console.log("useEffect upcoming");
-    // console.log("length", state.getUpcoming);
-    // if (state.getUpcoming.lenght) return;
-    // if (setIsGet) return;
     giveLoding();
     setTimeout(() => getUpcoming(), 500);
-    // setIsGet(true);
-    // return () => {};
   }, []);
 
   return (
     <>
       <ul className="upcoming_list" ref={isRender}>
-        {/* {console.log("state", state, state.loading)} */}
         {state.loading ? (
           <>
             <img
@@ -46,7 +38,10 @@ const Upcoming = ({ history }) => {
                     alt={v.title}
                   />
                   <strong>{v.title}</strong>
-                  <span>{v.vote_count}</span>
+                  <span>
+                    <i className="fas fa-thumbs-up"></i>
+                    &nbsp;{v.vote_count}
+                  </span>
                 </Link>
               </li>
             );
@@ -56,7 +51,6 @@ const Upcoming = ({ history }) => {
       <button className="gohome_btn" onClick={() => history.push("/")}>
         HOME
       </button>
-      {/* <SubRouter /> */}
     </>
   );
 };

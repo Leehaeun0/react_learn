@@ -12,6 +12,7 @@ export function ContextProvider({ children }) {
     getDetails,
     cleanDetails,
     giveLoding,
+    pushHistory,
   ] = UseFetch();
 
   const MovieValue = {
@@ -22,6 +23,7 @@ export function ContextProvider({ children }) {
     getDetails,
     cleanDetails,
     giveLoding,
+    pushHistory,
   };
 
   return (

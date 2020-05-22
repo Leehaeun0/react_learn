@@ -4,18 +4,25 @@ import { MovieContext } from "../Context/Context";
 
 const Search = ({ history }) => {
   const MovieContextValue = useContext(MovieContext);
-  const { state, getSearch } = MovieContextValue;
+  const { state, getSearch, pushHistory } = MovieContextValue;
 
   console.log("@@Render Serch page");
 
+  const renderHistory = () => {
+    return state.searchHistory.map((v) => (
+      <li onClick={(e) => getSearch(e.target.textContent)}>{v}</li>
+    ));
+  };
+
   return (
     <>
-      {/* {console.log("state", state.getSearch)} */}
       <input
         className="search_input"
         type="text"
         onChange={(e) => getSearch(e.target.value)}
+        onKeyPress={pushHistory}
       />
+      <ul className="history_list">{renderHistory()}</ul>
       <ul className="popular_list">
         {state.getSearch.map((v) => {
           if (!v.poster_path) return;
@@ -27,7 +34,10 @@ const Search = ({ history }) => {
                   alt={v.title}
                 />
                 <strong>{v.title}</strong>
-                <span>{v.vote_count}</span>
+                <span>
+                  <i className="fas fa-thumbs-up"></i>
+                  &nbsp;{v.vote_count}
+                </span>
               </Link>
             </li>
           );

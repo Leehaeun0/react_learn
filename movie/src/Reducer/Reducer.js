@@ -3,6 +3,7 @@ export const initialState = {
   getUpcoming: [],
   getDetails: [],
   getSearch: [],
+  searchHistory: [],
   loading: false,
 };
 
@@ -20,6 +21,11 @@ export const reducer = (state, action) => {
       return { ...state, getSearch: action.getSearch, loading: false };
     case "LODING":
       return { ...state, loading: true };
+    case "PUSH_HISTORY":
+      return {
+        ...state,
+        searchHistory: [...state.searchHistory, action.value],
+      };
     default:
       throw new Error();
   }

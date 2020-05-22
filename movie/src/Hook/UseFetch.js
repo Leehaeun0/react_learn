@@ -6,13 +6,15 @@ const UseFetch = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const getPopular = async () => {
+    if (state.getPopular.length) return;
     const { results: popularData } = await movies.getPopular();
     console.log("-- get popular doing");
     dispatch({ type: "GET_POPULAR", getPopular: popularData });
   };
 
   const getUpcoming = async () => {
-    // if (state.getUpcoming.lenght) return;
+    if (state.getUpcoming.length) return;
+    // if ([...isRender.current.children].length) return;
     const { results: getUpcoming } = await movies.getUpcoming();
     console.log("-- get Upcoming doing");
     dispatch({ type: "GET_UPCOMMIMG", getUpcoming });
@@ -27,7 +29,16 @@ const UseFetch = () => {
   const getDetails = async (id) => {
     const { data } = await movies.getMovie(id);
     console.log("-- get details doing");
+    // try{
+    //   dispatch({type:"LODING"})
+    // }catch(e){
+
+    // }
     dispatch({ type: "GET_DETAILS", getDetails: data });
+  };
+
+  const cleanDetails = () => {
+    dispatch({ type: "CLEAN_DETAILS" });
   };
 
   const giveLoding = () => {
@@ -35,16 +46,15 @@ const UseFetch = () => {
     dispatch({ type: "LODING" });
   };
 
-  const cleanDetails = () => {
-    dispatch({ type: "CLEAN_DETAILS" });
+  const pushHistory = (e) => {
+    if (e.key !== "Enter") return;
+    if (e.target.value.trim() === "") {
+      e.target.value = "";
+      return;
+    }
+    dispatch({ type: "PUSH_HISTORY", value: e.target.value.trim() });
+    e.target.value = "";
   };
-
-  // useEffect(() => {
-  //   console.log("useEffect popular");
-
-  //   giveLoding();
-  //   getPopular();
-  // }, []);
 
   return [
     state,
@@ -54,6 +64,7 @@ const UseFetch = () => {
     getDetails,
     cleanDetails,
     giveLoding,
+    pushHistory,
   ];
 };
 
