@@ -12,7 +12,7 @@ const Popular = () => {
     if (state.getPopular.length) return;
     console.log("useEffect popular");
     giveLoading();
-    // getPopular();
+    //  getPopular();
     setTimeout(() => getPopular(), 500);
     return () => deleteLoading();
   }, []);
