@@ -19,7 +19,7 @@ ul {
   background-color: #181818;
   min-height: 100vh;
   text-align: center;
-  padding-bottom: 50px;
+  padding: 0 20px 50px;
 }
 .header {
   padding: 37px 0 37px;
@@ -37,6 +37,7 @@ ul {
 .nav_list li {
   display: inline-block;
   width: 25%;
+  min-width: 130px;
 }
 .nav_list h2 {
   font-size: 18px;
@@ -71,6 +72,7 @@ textarea {
 .popular_list, .upcoming_list {
   max-width: 1700px;
   margin: 0 auto;
+  padding: 0;
   /* text-align: left; */
 }
 .populars, .upcomings {
@@ -99,9 +101,10 @@ textarea {
   /* color: #E50914; */
   /* color: rgb(204, 204, 204); */
 }
-@media screen and (max-width: 607px) { 
+@media screen and (max-width: 647px) { 
   .populars, .upcomings  {
     width: 400px;
+    max-width: 95%;
     margin: 0 0 30px;
   }
   .populars img, .upcomings img {
@@ -126,6 +129,7 @@ textarea {
   display: block;
   margin: 0 auto;
   width: 450px;
+  max-width: 95%;
 }
 .detail_title {
   display: inline-block;
@@ -138,7 +142,7 @@ textarea {
   padding-bottom: 10px;
 }
 .details_wrap p {
-  width: 80%;
+  width: 95%;
   max-width: 900px;
   margin: 0 auto;
   text-align: left;
@@ -159,6 +163,7 @@ textarea {
   /* background-color: #E50914; */
   background-color: rgba(0,0,0,0);
   width: 470px;
+  max-width: 80%;
   height: 50px;
   padding: 0 17px;
   font-size: 18px;
