@@ -1,6 +1,6 @@
-import { useReducer, useEffect } from "react";
-import { reducer, initialState } from "../Reducer/Reducer";
-import { movies } from "../Api/Api";
+import { useReducer, useEffect } from 'react';
+import { reducer, initialState } from '../Reducer/Reducer';
+import { movies } from '../Api/Api';
 
 const UseFetch = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -8,57 +8,52 @@ const UseFetch = () => {
   const getPopular = async () => {
     // if (state.getPopular.length) return;
     const { results: popularData } = await movies.getPopular();
-    console.log("-- get popular doing");
-    dispatch({ type: "GET_POPULAR", getPopular: popularData });
+    console.log('-- get popular doing');
+    dispatch({ type: 'GET_POPULAR', getPopular: popularData });
   };
 
   const getUpcoming = async () => {
     // if (state.getUpcoming.length) return;
     // if ([...isRender.current.children].length) return;
     const { results: getUpcoming } = await movies.getUpcoming();
-    console.log("-- get Upcoming doing");
-    dispatch({ type: "GET_UPCOMMIMG", getUpcoming });
+    console.log('-- get Upcoming doing');
+    dispatch({ type: 'GET_UPCOMMIMG', getUpcoming });
   };
 
-  const getSearch = async (value) => {
+  const getSearch = async value => {
     const { data } = await movies.searchMovies(value);
-    console.log("-- get serch doing");
-    dispatch({ type: "SEARCH_MOVIES", getSearch: data.results });
+    console.log('-- get serch doing');
+    dispatch({ type: 'SEARCH_MOVIES', getSearch: data.results });
   };
 
-  const getDetails = async (id) => {
+  const getDetails = async id => {
     const { data } = await movies.getMovie(id);
-    console.log("-- get details doing");
-    // try{
-    //   dispatch({type:"LOADING"})
-    // }catch(e){
-
-    // }
-    dispatch({ type: "GET_DETAILS", getDetails: data });
+    console.log('-- get details doing');
+    dispatch({ type: 'GET_DETAILS', getDetails: data });
   };
 
   const cleanDetails = () => {
-    dispatch({ type: "CLEAN_DETAILS" });
+    dispatch({ type: 'CLEAN_DETAILS' });
   };
 
   const giveLoading = () => {
-    console.log("give loading true");
-    dispatch({ type: "LOADING_TRUE" });
+    console.log('give loading true');
+    dispatch({ type: 'LOADING_TRUE' });
   };
 
   const deleteLoading = () => {
-    console.log("give loading false");
-    dispatch({ type: "LOADING_FALSE" });
+    console.log('give loading false');
+    dispatch({ type: 'LOADING_FALSE' });
   };
 
-  const pushHistory = (e) => {
-    if (e.key !== "Enter") return;
-    if (e.target.value.trim() === "") {
-      e.target.value = "";
+  const pushHistory = e => {
+    if (e.key !== 'Enter') return;
+    if (e.target.value.trim() === '') {
+      e.target.value = '';
       return;
     }
-    dispatch({ type: "PUSH_HISTORY", value: e.target.value.trim() });
-    e.target.value = "";
+    dispatch({ type: 'PUSH_HISTORY', value: e.target.value.trim() });
+    e.target.value = '';
   };
 
   return [
