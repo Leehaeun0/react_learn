@@ -18,7 +18,7 @@ export const toggleTodos = (id) => ({
 });
 
 // 초기 상태 선언
-export const initialState = [
+const initialState = [
   // {
   //   id: 1,
   //   text: '',

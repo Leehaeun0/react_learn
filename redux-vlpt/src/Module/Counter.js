@@ -21,12 +21,13 @@ export default function counter(state = initialState, action) {
     case INCREASE:
       return {
         ...state,
-        count: state.number + state.diff,
+        number: state.number + state.diff,
+        // count: state.number++,
       };
     case DECREASE:
       return {
         ...state,
-        count: state.number - state.diff,
+        number: state.number - state.diff,
       };
     default:
       return state;
